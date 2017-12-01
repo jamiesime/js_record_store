@@ -24,5 +24,9 @@ var record1;
     assert.strictEqual(record1.price, 1000);
   });
 
+  it("should print out properties as a string", function(){
+    assert.strictEqual(record1.printProperties(record1),
+    "Artist: Zola Jesus, Title: Okiva, Genre: Goth Pop, Price: 1000");
+  });
 
 });
