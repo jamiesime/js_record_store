@@ -36,7 +36,14 @@ var store1;
   it("should list inventory", function(){
     store1.addRecord(record1);
     store1.addRecord(record2);
-    assert.strictEqual(store1.listInventory(store1), "1. Wiggle Time by The Wiggles 2. Dr Dre's Here My Friends by Dr Dre ");
+    assert.strictEqual(store1.listInventory(), "1. Wiggle Time by The Wiggles 2. Dr Dre's Here My Friends by Dr Dre ");
+  });
+
+  it("should sell records", function(){
+    store1.addRecord(record1);
+    store1.sellRecord(record1);
+    assert.strictEqual(store1.balance, 11500);
+    assert.strictEqual(store1.inventory.length, 0);
   });
 
 

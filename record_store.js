@@ -11,15 +11,20 @@ RecordStore.prototype = {
     this.inventory.push(newRecord);
   },
 
-  listInventory: function(store){
+  listInventory: function(){
     var inventoryString = "";
-    var inventory = store.inventory;
     var listNumber = 1;
-    for (record in inventory){
-       inventoryString += listNumber + ". " + inventory[record].title + " by " + inventory[record].artist + " ";
+    for (record in this.inventory){
+       inventoryString += listNumber + ". " + this.inventory[record].title + " by " + this.inventory[record].artist + " ";
        listNumber++;
     }
     return inventoryString;
+  },
+
+  sellRecord: function(record){
+    var index = this.inventory.indexOf(record);
+    this.inventory.splice(index, 1);
+    this.balance += record.price;
   }
 
 }
