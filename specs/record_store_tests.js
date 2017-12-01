@@ -16,8 +16,8 @@ var store1;
     assert.strictEqual(store1.city, "Bingo City");
   });
 
-  // it("should have an empty inventory", function(){
-  //
-  // });
+  it("should have an empty inventory", function(){
+    assert.strictEqual(store1.inventory.length, 0);
+  });
 
 });
