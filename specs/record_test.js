@@ -2,6 +2,7 @@ var assert = require('assert');
 var Record = require('../record.js');
 
 describe('Record', function(){
+var record1;
 
   beforeEach(function(){
     record1 = new Record("Zola Jesus", "Okiva", "Goth Pop", 1000);
