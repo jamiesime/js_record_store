@@ -9,6 +9,7 @@ var store1;
     store1 = new RecordStore("Bobo Sound", "Bingo City", 10000);
     record1 = new Record("The Wiggles", "Wiggle Time", "Good Times", 1500);
     record2 = new Record("Dr Dre", "Dr Dre's Here My Friends", "Good Times", 1800);
+    record3 = new Record("Doom Crew", "The End Is Here", "Bad Times", 750);
   });
 
   it("should have a name", function(){
@@ -23,7 +24,7 @@ var store1;
     assert.strictEqual(store1.inventory.length, 0);
   });
 
-  it("should have a balance of 10000", function(){
+  it("should have an initial balance of 10000", function(){
     assert.strictEqual(store1.balance, 10000);
   });
 
@@ -50,6 +51,13 @@ var store1;
     store1.addRecord(record1);
     store1.addRecord(record2);
     assert.strictEqual(store1.finances(), "Funds: 10000, Inventory Value: 3300");
+  });
+
+  it("should return all records in inventory by genre", function(){
+    store1.addRecord(record1);
+    store1.addRecord(record2);
+    store1.addRecord(record3);
+    assert.strictEqual(store1.findByGenre("Bad Times"), "1. The End Is Here by Doom Crew");
   });
 
 

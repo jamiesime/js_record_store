@@ -33,6 +33,18 @@ RecordStore.prototype = {
       value += this.inventory[record].price;
     }
     return "Funds: " + this.balance + ", Inventory Value: " + value;
+  },
+
+  findByGenre: function(genre){
+    var matches = "";
+    var listNum = 1;
+    for(record in this.inventory){
+      if (this.inventory[record].genre === genre){
+        matches += (listNum + ". " + this.inventory[record].title + " by " + this.inventory[record].artist);
+        listNum++;
+      }
+    }
+    return matches;
   }
 
 }
