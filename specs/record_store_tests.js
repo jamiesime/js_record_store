@@ -46,6 +46,12 @@ var store1;
     assert.strictEqual(store1.inventory.length, 0);
   });
 
+  it("should report on current balance and value of inventory", function(){
+    store1.addRecord(record1);
+    store1.addRecord(record2);
+    assert.strictEqual(store1.finances(), "Funds: 10000, Inventory Value: 3300");
+  });
+
 
 
 });
