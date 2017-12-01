@@ -5,7 +5,7 @@ describe("RecordStore", function(){
 var store1;
 
   beforeEach(function(){
-    store1 = new RecordStore("Bobo Sound", "Bingo City");
+    store1 = new RecordStore("Bobo Sound", "Bingo City", 10000);
   });
 
   it("should have a name", function(){
@@ -18,6 +18,10 @@ var store1;
 
   it("should have an empty inventory", function(){
     assert.strictEqual(store1.inventory.length, 0);
+  });
+
+  it("should have a balance of 10000", function(){
+    assert.strictEqual(store1.balance, 10000);
   });
 
 });
