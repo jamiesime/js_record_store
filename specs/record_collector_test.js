@@ -9,10 +9,12 @@ var rc1;
 
   beforeEach(function(){
     rc1 = new RecordCollector(5000);
+    rc2 = new RecordCollector(7000);
     store1 = new RecordStore("Sound Area", "Cairo", 8000);
     record1 = new Record("The Wiggles", "Wiggle Time", "Good Times", 1500);
     record2 = new Record("Dr Dre", "Dr Dre's Here My Friends", "Good Times", 1800);
     record3 = new Record("Doom Crew", "The End Is Here", "Bad Times", 750);
+    record4 = new Record("Peanuts", "Romance Is Alive", "Metal", 8000);
   });
 
   it("should buy records", function(){
@@ -55,6 +57,14 @@ var rc1;
     rc1.addRecord(record2);
     rc1.addRecord(record3);
     assert.deepEqual(rc1.sortByPrice("asc"), [record3, record1, record2]);
+  });
+
+  it("should be able to compare collection value with another RecordCollector", function(){
+    rc1.addRecord(record1);
+    rc1.addRecord(record2);
+    rc1.addRecord(record3);
+    rc2.addRecord(record4);
+    assert.strictEqual(rc1.compareCollectionWith(rc2), rc2);
   });
 
 

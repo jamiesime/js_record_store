@@ -74,8 +74,21 @@ RecordCollector.prototype = {
     var newOrder = _.orderBy(this.collection, ["price"], [order]);
     this.tasks = newOrder;
     return newOrder;
-  }
+  },
 
+  compareCollectionWith: function(otherRC){
+    var myVal = this.calculateCollectionValue();
+    var otherVal = otherRC.calculateCollectionValue();
+    if (myVal > otherVal){
+      return this;
+    }
+    if (myVal < otherVal) {
+      return otherRC;
+    }
+    if (myVal === otherVal){
+      return "You're both the best.";
+    }
+  }
 
 }
 
