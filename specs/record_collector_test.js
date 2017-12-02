@@ -28,4 +28,14 @@ var rc1;
     assert.strictEqual(rc1.funds, 6800);
   });
 
+  it("should calculate the total value of collection", function(){
+    rc1.addRecord(record1);
+    rc1.addRecord(record2);
+    rc1.addRecord(record3);
+    assert.strictEqual(rc1.calculateCollectionValue(), 4050);
+
+  });
+
+
+
 })

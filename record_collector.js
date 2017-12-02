@@ -36,8 +36,15 @@ RecordCollector.prototype = {
     else {
       return "They don't have enough money!";
     }
-  }
+  },
 
+  calculateCollectionValue: function(){
+    var total = 0;
+    for(record in this.collection){
+      total += this.collection[record].price;
+    }
+    return total;
+  }
 
 }
 
