@@ -21,4 +21,11 @@ var rc1;
     assert.strictEqual(rc1.collection[0].title, "Wiggle Time");
   });
 
+  it("should sell records", function(){
+    rc1.addRecord(record2);
+    rc1.sellRecord(record2, store1);
+    assert.strictEqual(rc1.collection.length, 0);
+    assert.strictEqual(rc1.funds, 6800);
+  });
+
 })

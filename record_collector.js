@@ -5,12 +5,16 @@ var RecordCollector = function(funds){
 
 RecordCollector.prototype = {
 
-  buyRequest: function(title, store){
-    if(store.inventory.includes(title)){
-      if(this.funds > title.price){
-        this.collection.push(title);
-        this.funds -= title.price;
-        store.sellRecord(title);
+  addRecord: function(newRecord){
+    this.collection.push(newRecord);
+  },
+
+  buyRequest: function(record, store){
+    if(store.inventory.includes(record)){
+      if(this.funds > record.price){
+        this.collection.push(record);
+        this.funds -= record.price;
+        store.sellRecord(record);
       }
       else {
         return "Not enough money!";
@@ -19,7 +23,21 @@ RecordCollector.prototype = {
     else {
       return "Not in stock!";
     }
+  },
+
+  sellRecord: function(record, store){
+    if(store.balance > record.price){
+      store.addRecord(record);
+      store.balance -= record.price;
+      var index = this.collection.indexOf(record);
+      this.collection.splice(index, 1);
+      this.funds += record.price;
+    }
+    else {
+      return "They don't have enough money!";
+    }
   }
+
 
 }
 
