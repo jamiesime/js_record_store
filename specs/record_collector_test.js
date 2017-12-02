@@ -43,6 +43,13 @@ var rc1;
     assert.strictEqual(rc1.calculateGenreValue("Good Times"), 3300);
   });
 
+  it("should find most valuable record in collection", function(){
+    rc1.addRecord(record1);
+    rc1.addRecord(record2);
+    rc1.addRecord(record3);
+    assert.strictEqual(rc1.findMostValuable(), record2);
+  });
+
 
 
 

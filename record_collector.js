@@ -54,7 +54,21 @@ RecordCollector.prototype = {
       }
     }
     return total;
+  },
+
+  findMostValuable: function(){
+    maxValue = 0;
+    var maxRecord;
+    for(record in this.collection){
+      if(this.collection[record].price > maxValue){
+        maxValue = this.collection[record].price;
+        maxRecord = this.collection[record];
+      }
+    }
+    return maxRecord;
   }
+
+
 
 }
 
