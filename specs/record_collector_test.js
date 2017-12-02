@@ -50,7 +50,12 @@ var rc1;
     assert.strictEqual(rc1.findMostValuable(), record2);
   });
 
-
+  it("should be able to sort records by price", function(){
+    rc1.addRecord(record1);
+    rc1.addRecord(record2);
+    rc1.addRecord(record3);
+    assert.deepEqual(rc1.sortByPrice("asc"), [record3, record1, record2]);
+  });
 
 
 })

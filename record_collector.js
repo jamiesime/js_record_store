@@ -1,3 +1,5 @@
+var _ = require("lodash");
+
 var RecordCollector = function(funds){
   this.funds = funds;
   this.collection = [];
@@ -66,8 +68,13 @@ RecordCollector.prototype = {
       }
     }
     return maxRecord;
-  }
+  },
 
+  sortByPrice: function(order){
+    var newOrder = _.orderBy(this.collection, ["price"], [order]);
+    this.tasks = newOrder;
+    return newOrder;
+  }
 
 
 }
