@@ -1,0 +1,24 @@
+var assert = require("assert");
+var RecordCollector = require("../record_collector.js");
+var RecordStore = require("../record_store.js");
+var Record = require("../record.js");
+
+describe("RecordCollector", function(){
+var rc1;
+
+
+  beforeEach(function(){
+    rc1 = new RecordCollector(5000);
+    store1 = new RecordStore("Sound Area", "Cairo", 8000);
+    record1 = new Record("The Wiggles", "Wiggle Time", "Good Times", 1500);
+    record2 = new Record("Dr Dre", "Dr Dre's Here My Friends", "Good Times", 1800);
+    record3 = new Record("Doom Crew", "The End Is Here", "Bad Times", 750);
+  });
+
+  it("should buy records", function(){
+    store1.addRecord(record1);
+    rc1.buyRequest(record1, store1);
+    assert.strictEqual(rc1.collection[0].title, "Wiggle Time");
+  });
+
+})
