@@ -44,6 +44,16 @@ RecordCollector.prototype = {
       total += this.collection[record].price;
     }
     return total;
+  },
+
+  calculateGenreValue: function(calcGenre){
+    var total = 0;
+    for(record in this.collection){
+      if (this.collection[record].genre === calcGenre){
+        total += this.collection[record].price;
+      }
+    }
+    return total;
   }
 
 }

@@ -60,9 +60,7 @@ var store1;
     assert.strictEqual(store1.findByGenre("Bad Times"), "1. The End Is Here by Doom Crew");
   });
 
-  it("should calculate the total value of collection", function(){
-    
-  });
+
 
 
 

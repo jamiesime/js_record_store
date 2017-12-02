@@ -36,6 +36,14 @@ var rc1;
 
   });
 
+  it("should return value of all records with given genre", function(){
+    rc1.addRecord(record1);
+    rc1.addRecord(record2);
+    rc1.addRecord(record3);
+    assert.strictEqual(rc1.calculateGenreValue("Good Times"), 3300);
+  });
+
+
 
 
 })
